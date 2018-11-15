@@ -6,7 +6,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def drawMolecule():
-	return "Hello Molecula!"
+	SMILES = 'CCOCCNSC=O'
+	Img = Draw.MolToImage(Chem.MolFromSmiles(SMILES))
+	Img.show()
+	return "Hello, molecula."
 
 if __name__ == "__main__":
 	app.run(debug=True)
